@@ -29,17 +29,20 @@ const Order: React.FC<Iprops> = props => {
   return (
     <div>
       {
-        totalCount === 0 ? <div className="order">Вы пока еще ничего не выбрали</div>
+        totalCount === 0 ? <div className="order">Вы пока еще ничего не выбрали
+
+        </div>
           :
           <div className="order-wrapper">
-            <p className="price">Price:{props.price}coм</p>{
+
+            <p className="price"><b> Total Price:</b>{props.price}coм</p>{
 
             props.ordersState.map((order, index) => {
               return (
                 order.count ? (
                   <div className="orders-name" key={nanoid()}>
-                    <p>{order.name}</p>
-                    <p>{order.count} x {props.MENU[index].price * order.count}
+                    <p className="orderCount">{order.name}</p>
+                    <p className="orderCount">{order.count} x {props.MENU[index].price * order.count}
                       <button className="btn" onClick={() => props.onBtnClick(index)}>remove</button></p>
                   </div>
                 ) : null
